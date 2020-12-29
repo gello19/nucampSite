@@ -81,7 +81,7 @@
                             <div class="row">
                                 <div class="col">
                                     <button type="button" class="btn btn-secondary btn-md ml-auto" data-dismiss="modal">Cancel</button>
-                                    <input class="btn btn-primary" type="submit" value="Search">
+                                    <button type="submit" class="btn btn-primary">Search</button>
                                 </div>
                             
                             </div>
@@ -192,6 +192,14 @@
                         <span class="carousel-control-next-icon"></span>
                         <span class="sr-only">Next</span>
                     </a>
+                    <div class="btn-group" id="carouselButton">
+                        <button class="btn btn-danger btn-sm">
+                            <i class="fa fa-pause" id="carouselPause"></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm">
+                            <i class="fa fa-play" id="carouselPlay"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -278,12 +286,18 @@
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
 <script>
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
+    $(function() {
+        $(".carousel").carousel( { interval: 2000} );
+        $("#carouselPause").click(function(){
+            $(".carousel").carousel("pause");
+        });
+        $("#carouselPlay").click(function(){
+            $(".carousel").carousel("cycle");
+        })
+    });
 </script>
 
 </body>
-</body>
+
 
 </html>
